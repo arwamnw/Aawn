@@ -1,0 +1,311 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DAEDF4">
+
+    <!-- Toolbar -->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="415dp"
+        android:layout_height="wrap_content"
+        android:background="#16588C"
+        android:minHeight="?attr/actionBarSize"
+        android:textDirection="rtl"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:title="طعامي - وجبات الإفطار        ">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ماذا تشتهي على الإفطار اليوم ؟"
+        android:textColor="#16588C"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginRight="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12"
+        />
+    <!-- Card View -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/eggCard"
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_margin="16dp"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <!-- simple image view -->
+
+            <ImageView
+                android:id="@+id/eggView"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/egg" />
+
+            <!-- simple text view -->
+            <TextView
+                android:id="@+id/eggText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="بيض"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:layout_marginLeft="40dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pancakeCard"
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="0dp"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <!-- simple image view -->
+
+            <ImageView
+                android:id="@+id/pancakeView"
+                android:layout_width="110dp"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bancake" />
+            <!-- simple text view -->
+            <TextView
+                android:id="@+id/pancakeText"
+                android:layout_width="111dp"
+                android:layout_height="wrap_content"
+                android:text="فطائر محلاة"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:layout_marginLeft="0dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cheeseCard"
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pancakeCard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- simple image view -->
+            <ImageView
+                android:id="@+id/cheeseView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cheese" />
+            <!-- simple text view -->
+            <TextView
+                android:id="@+id/cheeseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="44dp"
+                android:clickable="true"
+                android:text="جبن"
+                android:textSize="23dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cornflakesCard"
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_margin="16dp"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fruitsCard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- simple image view -->
+            <ImageView
+                android:id="@+id/cornflakesView"
+                android:layout_width="match_parent"
+                android:layout_height="115dp"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cornflakes" />
+
+            <!-- simple text view -->
+            <TextView
+                android:id="@+id/cornflakesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:text="رقائق الذرة"
+                android:textSize="23dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fruitsCard"
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_margin="16dp"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <!-- simple image view -->
+            <ImageView
+                android:id="@+id/fruitsView"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/fruits" />
+            <!-- simple text view -->
+            <TextView
+                android:id="@+id/fruitsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="فواكه"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="40dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sandwichCard"
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_margin="16dp"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <!-- simple image view -->
+            <ImageView
+                android:id="@+id/sandwichView"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sandwich" />
+            <!-- simple text view -->
+            <TextView
+                android:id="@+id/sandwichText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ساندوتش"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:layout_marginLeft="17dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <ImageView
+        android:id="@+id/arrowback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/arrowback" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
