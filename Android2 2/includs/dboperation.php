@@ -1,0 +1,136 @@
+
+<?php 
+
+	class DbOperations{
+
+		private $con; 
+
+		function __construct(){
+
+			require_once dirname(__FILE__).'/DbConnect.php';
+			$db = new DbConnect();
+			$this->con = $db->connect();
+
+		}
+
+		/*CRUD -> C -> CREATE */
+
+		public function createUser($name, $pass, $email){
+			if($this->isUserExist($email)){
+				return 0; 
+			}else{
+				$password = md5($pass);
+				$stmt = $this->con->prepare("INSERT INTO `caregiver` (`id`, `name`, `password`, `email`) VALUES (NULL, ?, ?, ?);");
+				$stmt->bind_param("sss",$name,$password,$email);
+
+				if($stmt->execute()){
+					return 1; 
+				}else{
+					return 2; 
+				}
+			}
+		}
+
+		public function userLogin($email, $pass){
+		$password = md5($pass);
+			$stmt = $this->con->prepare("SELECT id FROM caregiver WHERE email = ? AND password = ?");
+			$stmt->bind_param("ss",$email,$password);
+			$stmt->execute();
+			$stmt->store_result(); 
+			return $stmt->num_rows > 0;
+    }
+ 
+		public function getUserByEmail($email){
+			$stmt = $this->con->prepare("SELECT * FROM caregiver WHERE email = ?");
+			$stmt->bind_param("s",$email);
+			$stmt->execute();
+			return $stmt->get_result()->fetch_assoc();
+		}
+		
+
+		private function isUserExist($email){
+			$stmt = $this->con->prepare("SELECT id FROM caregiver WHERE email = ?");
+			$stmt->bind_param("s", $email);
+			$stmt->execute(); 
+			$stmt->store_result(); 
+			return $stmt->num_rows > 0; 
+		}
+		
+		
+		
+		public function createChild($name, $pass, $email, $age){
+			if($this->isChildExist($email)){
+				return 0; 
+			}else{
+				$password = md5($pass);
+				$stmt = $this->con->prepare("INSERT INTO `child` (`id`, `name`, `password`, `email`, `age`) VALUES (NULL, ?, ?, ?, ?);");
+				$stmt->bind_param("ssss",$name,$password,$email, $age);
+
+				if($stmt->execute()){
+					return 1; 
+				}else{
+					return 2; 
+				}
+			}
+		}
+		
+		public function ChildLogin($email, $pass){
+		$password = md5($pass);
+			$stmt = $this->con->prepare("SELECT id FROM child WHERE email = ? AND password = ?");
+			$stmt->bind_param("ss",$email,$password);
+			$stmt->execute();
+			$stmt->store_result(); 
+			return $stmt->num_rows > 0;
+		}
+		
+		
+		private function isChildExist($email){
+			$stmt = $this->con->prepare("SELECT id FROM child WHERE email = ?");
+			$stmt->bind_param("s", $email);
+			$stmt->execute(); 
+			$stmt->store_result(); 
+			return $stmt->num_rows > 0; 
+		}
+		
+		
+		public function getChildByEmail($email){
+			$stmt = $this->con->prepare("SELECT * FROM child WHERE email = ?");
+			$stmt->bind_param("s",$email);
+			$stmt->execute();
+			return $stmt->get_result()->fetch_assoc();
+		}
+
+
+
+
+        public function createUserCaregiver($name, $pass, $email){
+			if($this->isUserExist($email)){
+				return 0; 
+			}else{
+				$stmt = $this->con->prepare("INSERT INTO `caregiver` (`id`, `name`, `password`, `email`) VALUES (NULL, ?, ?, ?);");
+				$stmt->bind_param("sss",$name,$pass,$email);
+
+				if($stmt->execute()){
+					return 1; 
+				}else{
+					return 2; 
+				}
+			}
+		}
+		
+		public function createUserChild($name, $pass, $email, $age){
+			if($this->isChildExist($email)){
+				return 0; 
+			}else{
+				$stmt = $this->con->prepare("INSERT INTO `child` (`id`, `name`, `password`, `email`, `age`) VALUES (NULL, ?, ?, ?, ?);");
+				$stmt->bind_param("ssss",$name,$pass,$email, $age);
+
+				if($stmt->execute()){
+					return 1; 
+				}else{
+					return 2; 
+				}
+			}
+		}
+
+	}
